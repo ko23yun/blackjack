@@ -16,45 +16,38 @@ function shuffle(array) {
   }
 }
 
+function checkShuffledCardLength() {
+  if (shuffledCard.length === 0) {
+    shuffledCard = card.slice();
+    shuffle(shuffledCard);
+  }
+}
+
 let shuffledCard = card.slice().slice();
 
 // 랜덤으로 card 배열 섞기
 shuffle(shuffledCard);
 
 function blackJack(money, count) {
-  if (count === 10) {
-    return;
-  }
+  if (count === 10) return;
 
-  if (shuffledCard.length === 0) {
-    shuffledCard = card.slice();
-    shuffle(shuffledCard);
-  }
+  checkShuffledCardLength();
   let x = shuffledCard.shift();
-  if (shuffledCard.length === 0) {
-    shuffledCard = card.slice();
-    shuffle(shuffledCard);
-  }
+
+  checkShuffledCardLength();
   let z = shuffledCard.shift();
-  if (shuffledCard.length === 0) {
-    shuffledCard = card.slice();
-    shuffle(shuffledCard);
-  }
+
+  checkShuffledCardLength();
   let y = shuffledCard.shift();
-  if (shuffledCard.length === 0) {
-    shuffledCard = card.slice();
-    shuffle(shuffledCard);
-  }
+
+  checkShuffledCardLength();
   let w = shuffledCard.shift();
 
   let user = x + y;
   let dealer = z + w;
 
   while (user <= 14) {
-    if (shuffledCard.length === 0) {
-      shuffledCard = card.slice();
-      shuffle(shuffledCard);
-    }
+    checkShuffledCardLength();
     user = user + shuffledCard.shift();
 
     if (user > 21) {
@@ -64,10 +57,7 @@ function blackJack(money, count) {
   }
 
   while (dealer <= 16) {
-    if (shuffledCard.length === 0) {
-      shuffledCard = card.slice();
-      shuffle(shuffledCard);
-    }
+    checkShuffledCardLength();
     dealer = dealer + shuffledCard.shift();
 
     if (dealer > 21) {
