@@ -23,7 +23,7 @@ function checkShuffledCardLength() {
   }
 }
 
-let shuffledCard = card.slice().slice();
+let shuffledCard = card.slice();
 
 // 랜덤으로 card 배열 섞기
 shuffle(shuffledCard);
