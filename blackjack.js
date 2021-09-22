@@ -1,3 +1,6 @@
+// 1 => 1, 11
+// 처음 합이 21이면 1.5
+
 let card = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5,
   6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10,
@@ -13,33 +16,33 @@ function shuffle(array) {
   }
 }
 
-let shuffledCard = card;
+let shuffledCard = card.slice().slice();
 
 // 랜덤으로 card 배열 섞기
 shuffle(shuffledCard);
 
 function blackJack(money, count) {
-  if (count === 20) {
+  if (count === 10) {
     return;
   }
 
   if (shuffledCard.length === 0) {
-    shuffledCard = card;
+    shuffledCard = card.slice();
     shuffle(shuffledCard);
   }
   let x = shuffledCard.shift();
   if (shuffledCard.length === 0) {
-    shuffledCard = card;
+    shuffledCard = card.slice();
     shuffle(shuffledCard);
   }
   let z = shuffledCard.shift();
   if (shuffledCard.length === 0) {
-    shuffledCard = card;
+    shuffledCard = card.slice();
     shuffle(shuffledCard);
   }
   let y = shuffledCard.shift();
   if (shuffledCard.length === 0) {
-    shuffledCard = card;
+    shuffledCard = card.slice();
     shuffle(shuffledCard);
   }
   let w = shuffledCard.shift();
@@ -49,7 +52,7 @@ function blackJack(money, count) {
 
   while (user <= 14) {
     if (shuffledCard.length === 0) {
-      shuffledCard = card;
+      shuffledCard = card.slice();
       shuffle(shuffledCard);
     }
     user = user + shuffledCard.shift();
@@ -62,7 +65,7 @@ function blackJack(money, count) {
 
   while (dealer <= 16) {
     if (shuffledCard.length === 0) {
-      shuffledCard = card;
+      shuffledCard = card.slice();
       shuffle(shuffledCard);
     }
     dealer = dealer + shuffledCard.shift();
